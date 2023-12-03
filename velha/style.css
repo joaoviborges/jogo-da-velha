@@ -105,8 +105,8 @@
     width: calc(100px * 0.9);
     position: absolute;
     border-radius: 50%;
-    border: 10px solid black; /* Ajuste a largura da borda conforme necessário */
-    box-sizing: border-box; /* Isso garante que a borda não afete o tamanho total */
+    border: 10px solid black; 
+    box-sizing: border-box; 
 }
   
   /* Mensagem de Vitória */
