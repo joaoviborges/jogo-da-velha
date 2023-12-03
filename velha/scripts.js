@@ -19,6 +19,11 @@ const winningCombinations = [
   [2, 4, 6],
 ];
 
+const playAudio = (audioFileName) => {
+  const audio = new Audio(audioFileName);
+  audio.play();
+};
+
 const startGame = () => {
   isCircleTurn = false;
 
@@ -36,10 +41,14 @@ const startGame = () => {
 const endGame = (isDraw) => {
   if (isDraw) {
     winningMessageTextElement.innerText = "Empate!";
+    playAudio("N1.mp3.mp3");
   } else {
     winningMessageTextElement.innerText = isCircleTurn
       ? "O Venceu!"
       : "X Venceu!";
+
+    const audioFileName = isCircleTurn ? "N2.mp3.mp3" : "N3.mp3.mp3";
+    playAudio(audioFileName);
   }
 
   winningMessage.classList.add("show-winning-message");
@@ -102,6 +111,8 @@ const handleClick = (e) => {
     swapTurns();
   }
 };
+
+
 
 startGame();
 
