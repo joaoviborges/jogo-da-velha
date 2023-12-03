@@ -108,11 +108,16 @@ const handleClick = (e) => {
     endGame(true);
   } else {
     // Mudar símbolo
+
     swapTurns();
+
+    // Tocar áudio baseado na classe da célula
+    const cellIndex = Array.from(cell.parentElement.children).indexOf(cell) + 1;
+    const audioFileName = classToAdd === "circle" ? `bola${cellIndex}.mp3` : `x${cellIndex}.mp3`;
+    playAudio(audioFileName);
   }
+
 };
-
-
 
 startGame();
 
