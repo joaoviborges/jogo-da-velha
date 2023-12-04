@@ -42,7 +42,6 @@ const startGame = () => {
     cell.classList.remove("x");
     cell.removeEventListener("click", handleClick);
     cell.addEventListener("click", handleClick, { once: true });
-    backgroundMusic.play();
   }
 
   setBoardHoverClass();
