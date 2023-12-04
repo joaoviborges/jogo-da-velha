@@ -5,6 +5,16 @@ const winningMessageTextElement = document.querySelector(
 );
 const winningMessage = document.querySelector("[data-winning-message]");
 const restartButton = document.querySelector("[data-restart-button]");
+const backgroundMusic = document.getElementById("backgroundMusic");
+const toggleMusicButton = document.getElementById("toggleMusicButton");
+
+toggleMusicButton.addEventListener("click", () => {
+  if (backgroundMusic.paused) {
+    backgroundMusic.play();
+  } else {
+    backgroundMusic.pause();
+  }
+});
 
 let isCircleTurn;
 
@@ -32,6 +42,7 @@ const startGame = () => {
     cell.classList.remove("x");
     cell.removeEventListener("click", handleClick);
     cell.addEventListener("click", handleClick, { once: true });
+    backgroundMusic.play();
   }
 
   setBoardHoverClass();
@@ -47,8 +58,7 @@ const endGame = (isDraw) => {
       ? "O Venceu!"
       : "X Venceu!";
 
-    const audioFileName = isCircleTurn ? "N2.mp3.mp3" : "N3.mp3.mp3";
-    playAudio(audioFileName);
+    const audioFileName = isCircleTurn ? playAudio("N2.mp3.mp3") : playAudio("N3.mp3.mp3");
   }
 
   winningMessage.classList.add("show-winning-message");
